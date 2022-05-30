@@ -34,7 +34,7 @@ struct QuizBrain {
             return false
         }
     }
-    
+        
     func getScore() -> Int{
         return score
     }
