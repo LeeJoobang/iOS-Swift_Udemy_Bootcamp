@@ -19,7 +19,6 @@ class CalculateViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func heightSliderChanged(_ sender: UISlider) {
@@ -43,6 +42,8 @@ class CalculateViewController: UIViewController {
         if segue.identifier == "goToResult"{
             let destinationVC = segue.destination as! ResultsViewController //as를 사용함으로써 downcasting이라는 개념이 적용되었다.
             destinationVC.bmiValue = calculatorBrain.getBMIValue()
+            destinationVC.adviceValue = calculatorBrain.getAdvice()
+            destinationVC.colorValue = calculatorBrain.getColor()
             
         }
     }
