@@ -21,20 +21,15 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchTextField.delegate = self // 텍스트 필드는 사용자가 텍스트를 입력하는 작업을 처리한다. 예를 들어 사용자가 무엇을 입력을 할 대에 텍스트필드가 뷰 컨트롤러에게 무슨 일이 일어나고 있는지 알릴 것이다. 여기서 셀프는 뷰 컨트롤러를 가르키고 있다.
-        
     }
-
 
     @IBAction func searchPressed(_ sender: UIButton) {
         searchTextField.endEditing(true)
-        print(searchTextField.text!)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print(searchTextField.text!)
         return true
     }
-    
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         if textField.text != "" {
@@ -52,6 +47,5 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         }
         searchTextField.text = ""
     }
-
 }
 
