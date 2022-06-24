@@ -15,6 +15,9 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var searchTextField: UITextField!
     
+    
+    var weatherManager = WeatherManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchTextField.delegate = self // 텍스트 필드는 사용자가 텍스트를 입력하는 작업을 처리한다. 예를 들어 사용자가 무엇을 입력을 할 대에 텍스트필드가 뷰 컨트롤러에게 무슨 일이 일어나고 있는지 알릴 것이다. 여기서 셀프는 뷰 컨트롤러를 가르키고 있다.
@@ -44,8 +47,9 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        // use searchTextField.text to get the weather for that city.
-        //
+        if let city = searchTextField.text {
+            weatherManager.fetchWeather(cityName: city)
+        }
         searchTextField.text = ""
     }
 
